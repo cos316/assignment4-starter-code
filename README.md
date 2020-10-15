@@ -1,12 +1,12 @@
 # COS316, Assignment 4: Dopey Object Relational Mapper (DORM)
 
-## Due: November 19 at 23:00
+## Due: [Date TBD] at [Time TBD]
 
 # Dopey Object Relational Mapper (DORM)
 
 This assignment asks you to build a generic Object Relational Mapper (ORM). An ORM
 translates language-level objects---Go structs in our case---to and from a
-"relational mapping"---an SQLite database in our case. This allows application
+"relational mapping"---a SQLite database in our case. This allows application
 developers to use normal language constructs and idioms to manipulate data
 stored in a database.
 
@@ -61,7 +61,7 @@ for _, post := range allPosts {
 }
 ```
 
-In this assignment you'll build a simple ORM for mapping Go structs to an
+In this assignment you'll build a simple ORM for mapping Go structs to a
 SQLite database that can add new rows from a struct, fetch all rows of a given type, and fetch the first row of a given type, if it exists.
 
 You will also implement some helper functions to analyze provided structs and return a string or strings representing the named fields of that struct.
@@ -110,10 +110,11 @@ func ColumnNames(v interface{}) []string
 func TableName(result interface{}) string
 
 
-// Find queries a database for all rows in a given table,
+// The function Find queries a database for all rows in a given table,
 // and stores all matching rows in the slice provided as an argument.
 
-// The argument `result` will be a pointer to an empty slice of models. // To be explicit, it will have type: *[]MyStruct,
+// The argument `result` will be a pointer to an empty slice of models.
+// To be explicit, it will have type *[]MyStruct,
 // where MyStruct is any arbitrary struct subject to the restrictions
 // discussed later in this document.
 // You may assume the slice referenced by `result` is empty.
@@ -124,12 +125,12 @@ func TableName(result interface{}) string
 //    db.Find(&result)
 func (db *DB) Find(result interface{})
 
-// First queries a database for the first row in a table,
+// The function First queries a database for the first row in a table
 // and stores the matching row in the struct provided as an argument.
-// If no such entry exists, First returns false; else it returns true.
+// If no such entry exists, First returns false; otherwise it returns true.
 
 // The argument `result` will be a pointer to a model.
-// To be explicit, it will have type: *MyStruct,
+// To be explicit, it will have type *MyStruct,
 // where MyStruct is any arbitrary struct subject to the restrictions
 // discussed later in this document.
 
@@ -267,7 +268,7 @@ In particular:
 ## SQL Resources
 
 As part of this assignment, you will need to write code that composes SQL
-queries. We recommend you consult the [SQL precept slides](https://docs.google.com/presentation/d/18cojpvYedtSQEwi3Nq9jd7cAWSRjBrb_iB_jZGVmpVk/edit) or [SQLite documentation](https://www.sqlite.org/index.html) for a refresher on how you might accomplish this.
+queries. We recommend you consult the [SQL precept slides](https://cos316.princeton.edu/precepts/SQL.pdf) or [SQLite documentation](https://www.sqlite.org/index.html) for a refresher on how you might accomplish this.
 
 You may also find the golang [database/sql](https://golang.org/pkg/database/sql/) library useful.
 

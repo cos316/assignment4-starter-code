@@ -54,7 +54,8 @@ func TableName(result interface{}) string {
 // Find queries a database for all rows in a given table,
 // and stores all matching rows in the slice provided as an argument.
 
-// The argument `result` will be a pointer to an empty slice of models. // To be explicit, it will have type: *[]MyStruct,
+// The argument `result` will be a pointer to an empty slice of models.
+// To be explicit, it will have type: *[]MyStruct,
 // where MyStruct is any arbitrary struct subject to the restrictions
 // discussed later in this document.
 // You may assume the slice referenced by `result` is empty.
