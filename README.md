@@ -1,11 +1,11 @@
 # COS316, Assignment 4: Dopey Object Relational Mapper (DORM)
 
-## Due: 10/28 at 23:00 Princeton Time
+## Due: March 30th at 11pm
 
 # Dopey Object Relational Mapper (DORM)
 
-This assignment asks you to build a generic Object Relational Mapper (ORM). An ORM
-translates language-level objects---Go structs in our case---to and from a
+This assignment asks you to build a generic Object Relational Mapper (ORM). An 
+ORM translates language-level objects---Go structs in our case---to and from a
 "relational mapping"---a SQLite database in our case. This allows application
 developers to use normal language constructs and idioms to manipulate data
 stored in a database.
@@ -35,9 +35,11 @@ create table post (
 )
 ```
 
-where `id` is a primary key that is auto-incremented by 1 for each new record (tuple) inserted into the table named `post`.
+where `id` is a primary key that is auto-incremented by 1 for each new record 
+(tuple) inserted into the table named `post`.
 
-An object relational mapper allows an application developer to "talk" to the database through the Go struct:
+An object relational mapper (ORM) allows an application developer to "talk" to the 
+database through the Go struct:
 
 ```go
 // Create a new post
@@ -62,9 +64,11 @@ for _, post := range allPosts {
 ```
 
 In this assignment you'll build a simple ORM for mapping Go structs to a
-SQLite database that can add new rows from a struct, fetch all rows of a given type, and fetch the first row of a given type, if it exists.
+SQLite database that can add new rows from a struct, fetch all rows of a given 
+type, and fetch the first row of a given type, if it exists.
 
-You will also implement some helper functions to analyze provided structs and return a string or strings representing the named fields of that struct.
+You will also implement some helper functions to analyze provided structs and 
+return a string or strings representing the named fields of that struct.
 
 ## API
 
@@ -109,7 +113,6 @@ func ColumnNames(v interface{}) []string
 // TableName(&MyStruct{})    ==>  "my_struct"
 func TableName(result interface{}) string
 
-
 // The function Find queries a database for all rows in a given table,
 // and stores all matching rows in the slice provided as an argument.
 
@@ -140,7 +143,6 @@ func (db *DB) Find(result interface{})
 //    ok := db.First(result)
 func (db *DB) First(result interface{}) bool
 
-
 // Create adds the specified model to the appropriate database table.
 // The table for the model *must* already exist, and Create() should
 // panic if it does not.
@@ -163,9 +165,10 @@ although you are welcome to if it will help your implementation.
 
 ### CamelCase and Underscore Case Specification
 
-As part of your `ColumnNames` and `TableName` implementation, you will
-need to devise a way to convert between `camelCase` identifiers
-and `underscore_case` identifiers. You may find the [strings](https://golang.org/pkg/strings/) package useful.
+You will need to devise a way to convert between `camelCase` identifiers (in Go)
+and `underscore_case` identifiers (in SQL). This conversion should apply whenever 
+your Go program interacts directly with the SQL database. You may find the 
+[strings](https://golang.org/pkg/strings/) package useful.
 
 Below is a formal specification of `CamelCase` and `underscore_case`:
 
@@ -268,37 +271,34 @@ In particular:
 ## SQL Resources
 
 As part of this assignment, you will need to write code that composes SQL
-queries. We recommend you consult the [SQL precept slides](https://cos316.princeton.edu/precepts/SQL.pdf) or [SQLite documentation](https://www.sqlite.org/index.html) for a refresher on how you might accomplish this.
+queries. We recommend you consult the 
+[SQL precept slides](https://cos316.princeton.edu/precepts/SQL.pdf) or 
+[SQLite documentation](https://www.sqlite.org/index.html) for a refresher on 
+how you might accomplish this.
 
-You may also find the golang [database/sql](https://golang.org/pkg/database/sql/) library useful.
+You may also find the golang 
+[database/sql](https://golang.org/pkg/database/sql/) library useful.
 
 As always, you are free to use the internet and any other resources you would
 like to learn more information about SQL.
-
-## Getting started
-
-As in previous assignments, you will need to clone your GitHub classroom
-repository, and add the downloaded repo as a synced folder in your Vagrant VM
-before you start programming.
-Refer to the [GitHub classroom README](https://github.com/cos316/COS316-Public/blob/master/assignments/GITHUB.md)
-for more detailed instructions.
 
 ## Unit testing
 
 Recall Go uses the [testing package](https://golang.org/pkg/testing/) to create
 unit tests for Go packages.
 
-For this assignment, you are provided with dorm_test.go, which contains very basic unit tests. You are encouraged to extend this file to create your own unit tests.
+For this assignment, you are provided with dorm_test.go, which contains very 
+basic unit tests. You are encouraged to extend this file to create your own 
+unit tests.
 
 ## Sample Application
 
 A sample application, based on the example above, is provided in example/main.go
 
-
 ## Submission & Grading
 
 Your assignment will be automatically submitted every time you push your changes
-to your GitHub Classroom repo. Within a couple minutes of your submission, the
+to your GitHub repo. Within a couple minutes of your submission, the
 autograder will make a comment on your commit listing the output of our testing
 suite when run against your code. **Note that you will be graded only on your
 changes to the `dorm` package**, and not on your changes to any other files,

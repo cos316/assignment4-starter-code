@@ -6,7 +6,7 @@ import (
 	"fmt"
 	_ "github.com/mattn/go-sqlite3"
 
-	"../dorm"
+	"cos316.princeton.edu/assignment4/dorm"
 )
 
 type Post struct {
