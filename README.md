@@ -1,6 +1,6 @@
 # COS316, Assignment 4: Dopey Object Relational Mapper (DORM)
 
-## Due: [Date TBD] at [Time TBD]
+## Due: March 23rd at 11pm
 
 # Dopey Object Relational Mapper (DORM)
 
