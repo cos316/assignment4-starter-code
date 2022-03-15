@@ -1,6 +1,6 @@
 # COS316, Assignment 4: Dopey Object Relational Mapper (DORM)
 
-## Due: March 30th at 11pm
+## Due: [Date TBD] at [Time TBD]
 
 # Dopey Object Relational Mapper (DORM)
 
@@ -165,8 +165,8 @@ although you are welcome to if it will help your implementation.
 
 ### CamelCase and Underscore Case Specification
 
-You will need to devise a way to convert between `camelCase` identifiers (in Go)
-and `underscore_case` identifiers (in SQL). This conversion should apply whenever 
+You will need to devise a way to convert between `camelCase` identifiers (structs in Go)
+and `underscore_case` identifiers (columns in SQL). This conversion should apply whenever 
 your Go program interacts directly with the SQL database. You may find the 
 [strings](https://golang.org/pkg/strings/) package useful.
 
